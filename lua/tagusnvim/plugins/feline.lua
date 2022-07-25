@@ -42,7 +42,7 @@ M.bootstrap = function()
         else
             icon = ' '
         end
-        return icon .. os
+        return icon
     end
 
     local lsp = require('feline.providers.lsp')
@@ -276,13 +276,13 @@ M.bootstrap = function()
 
     table.insert(components.active[1], comps.vi_mode.left)
     table.insert(components.active[1], comps.file.info)
+    table.insert(components.active[1], comps.git.branch)
     table.insert(components.active[1], {
         provider = function()
             return require('nvim-navic').get_location()
         end,
         left_sep = ' ',
     })
-    table.insert(components.active[1], comps.git.branch)
     table.insert(components.active[1], comps.git.add)
     table.insert(components.active[1], comps.git.change)
     table.insert(components.active[1], comps.git.remove)
