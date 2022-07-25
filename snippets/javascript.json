@@ -1,0 +1,10 @@
+{
+    "consolelog": {
+        "prefix": "consolelog",
+        "body": [
+            "// eslint-disable-next-line no-console",
+            "console.log(${1});"
+        ],
+        "description": "console.log with eslint disable line."
+    }
+}

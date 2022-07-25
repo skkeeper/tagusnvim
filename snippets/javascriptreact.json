@@ -1,0 +1,13 @@
+{
+    "component": {
+        "prefix": "component",
+        "body": [
+            "import React from 'react';",
+            "",
+            "const ${1:name} = () => { ${2} };",
+            "",
+            "export default ${1:name};"
+        ],
+        "description": "New React component."
+    }
+}
