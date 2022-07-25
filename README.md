@@ -29,8 +29,8 @@ pip install neovim
 - Install node neovim bindings and LSP dependencies
 
 ```bash
-npm install -g neovim eslint markdownlint-cli stylelint write-good yarn vscode-langservers-extracted vim-language-server emmet-ls yaml-language-server
-pip install gitlint
+npm install -g neovim eslint markdownlint-cli stylelint write-good yarn vscode-langservers-extracted vim-language-server emmet-ls yaml-language-server alex
+pip install gitlint proselint
 ```
 
 ## References
