@@ -11,13 +11,13 @@
 Linux
 
 ```bash
-git clone https://github.com/skkeeper/tagusvim.git ~/.config/nvim
+git clone https://github.com/skkeeper/tagusnvim.git ~/.config/nvim
 ```
 
 Windows
 
 ```bash
-git clone https://github.com/skkeeper/tagusvim.git %APPDATA%/../Local/nvim
+git clone https://github.com/skkeeper/tagusnvim.git %APPDATA%/../Local/nvim
 ```
 
 - Install nvim python 3 support
