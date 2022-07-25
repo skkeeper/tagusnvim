@@ -16,6 +16,7 @@ M.bootstrap = function()
             header = '',
             prefix = '',
         },
+        virtual_text = false
     }
 
     vim.diagnostic.config(config)

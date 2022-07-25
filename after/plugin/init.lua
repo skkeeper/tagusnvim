@@ -61,9 +61,8 @@ run_if_module_exists('gitsigns', function()
 end)
 
 run_if_exists(':DeleteHiddenBuffers', function()
-    local hidden_buffers_cfg = require(
-        'tagusnvim.plugins.vim-delete-hidden-buffers'
-    )
+    local hidden_buffers_cfg =
+        require('tagusnvim.plugins.vim-delete-hidden-buffers')
     hidden_buffers_cfg.keybindings()
 end)
 
@@ -134,6 +133,10 @@ end)
 run_if_exists(':GV', function()
     local gv_cfg = require('tagusnvim.plugins.gv')
     gv_cfg.keybindings()
+end)
+
+run_if_module_exists('lsp_lines', function()
+    require('lsp_lines').setup()
 end)
 
 require('tagusnvim.open_uri_under_cursor')

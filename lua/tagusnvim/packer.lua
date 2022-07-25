@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
     -- Highlight color codes in buffers
     use({
         'norcalli/nvim-colorizer.lua',
-        event = 'BufRead',
+        -- event = 'BufRead',
     })
 
     -- Treesitter syntax
@@ -88,7 +88,7 @@ return require('packer').startup(function(use)
     -- show indent indicators on all lines
     use({
         'lukas-reineke/indent-blankline.nvim',
-        event = 'BufRead',
+        -- event = 'BufRead',
     })
 
     -- JSON Schema validators
@@ -109,6 +109,13 @@ return require('packer').startup(function(use)
     use({
         'jose-elias-alvarez/null-ls.nvim',
         requires = { 'nvim-lua/plenary.nvim' },
+    })
+
+    use({
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").setup()
+        end,
     })
 
     -- LSP extensions and UIs
@@ -160,7 +167,7 @@ return require('packer').startup(function(use)
     -- Buffer line
     use({
         'romgrk/barbar.nvim',
-        event = 'VimEnter', -- fixes nvim intro
+        -- event = 'VimEnter', -- fixes nvim intro
         requires = { 'kyazdani42/nvim-web-devicons' },
     })
 
@@ -214,7 +221,7 @@ return require('packer').startup(function(use)
     -- scrollbar
     use({
         'petertriho/nvim-scrollbar',
-        event = 'BufRead', -- fix nvim intro
+        -- event = 'BufRead', -- fix nvim intro
     })
 
     -- Testing integration

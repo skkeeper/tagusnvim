@@ -1,7 +1,7 @@
 local M = {}
 
 M.bootstrap = function()
-    require('colorizer').setup({})
+    require('colorizer').setup()
     vim.cmd('ColorizerAttachToBuffer')
     vim.cmd('ColorizerReloadAllBuffers')
 end
