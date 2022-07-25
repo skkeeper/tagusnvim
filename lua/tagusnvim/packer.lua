@@ -94,15 +94,15 @@ return require('packer').startup(function(use)
     -- JSON Schema validators
     use('b0o/schemastore.nvim')
 
-    -- LSP Auto installer
+    -- LSP auto installer and configurations
     use({
-        'williamboman/nvim-lsp-installer',
-        requires = {
-            'neovim/nvim-lspconfig',
-            'jose-elias-alvarez/typescript.nvim',
-            'nvim-lua/lsp-status.nvim',
-            'ray-x/lsp_signature.nvim',
-        },
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        'neovim/nvim-lspconfig',
+        'jose-elias-alvarez/typescript.nvim',
+        'nvim-lua/lsp-status.nvim',
+        'ray-x/lsp_signature.nvim',
     })
 
     -- Integrate cli tools into LSP
@@ -112,9 +112,9 @@ return require('packer').startup(function(use)
     })
 
     use({
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
         config = function()
-            require("lsp_lines").setup()
+            require('lsp_lines').setup()
         end,
     })
 

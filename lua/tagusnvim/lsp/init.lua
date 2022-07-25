@@ -1,7 +1,7 @@
 local M = {}
 
 M.bootstrap = function()
-    require('tagusnvim.lsp.lsp-installer')
+    require('tagusnvim.lsp.mason-lspconfig').bootstrap()
     M.lsp_status()
 
     local config = {

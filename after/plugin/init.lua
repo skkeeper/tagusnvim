@@ -61,8 +61,9 @@ run_if_module_exists('gitsigns', function()
 end)
 
 run_if_exists(':DeleteHiddenBuffers', function()
-    local hidden_buffers_cfg =
-        require('tagusnvim.plugins.vim-delete-hidden-buffers')
+    local hidden_buffers_cfg = require(
+        'tagusnvim.plugins.vim-delete-hidden-buffers'
+    )
     hidden_buffers_cfg.keybindings()
 end)
 
@@ -71,10 +72,10 @@ run_if_module_exists('nvim-treesitter.configs', function()
     treesitter_cfg.bootstrap()
 end)
 
-run_if_module_exists('nvim-lsp-installer', function()
-    local lsp_installer_cfg = require('tagusnvim.lsp')
-    lsp_installer_cfg.bootstrap()
-    lsp_installer_cfg.keybindings()
+run_if_module_exists('mason-lspconfig', function()
+    local lsp_cfg = require('tagusnvim.lsp')
+    lsp_cfg.bootstrap()
+    lsp_cfg.keybindings()
 end)
 
 run_if_module_exists('null-ls', function()
