@@ -38,7 +38,7 @@ M.on_attach = function(client, bufnr)
     local lsp_status = require('lsp-status')
     lsp_status.on_attach(client)
 
-    if client.name ~= 'null-ls' then
+    if client.resolved_capabilities.document_symbol then
         local navic = require('nvim-navic')
         navic.attach(client, bufnr)
     end
