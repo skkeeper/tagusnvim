@@ -4,6 +4,14 @@
 
 - Neovim 0.7.2+
 
+### Optional
+
+Install the following with your favorite package manager:
+
+- Golang
+- Luarocks
+- Node
+
 ## Install
 
 - Clone this repo

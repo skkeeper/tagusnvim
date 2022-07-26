@@ -65,7 +65,6 @@ M.tool_installer = function()
             'luacheck',
             'revive',
             'shellcheck',
-            'vint',
         },
     })
 end
