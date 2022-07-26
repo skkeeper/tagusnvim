@@ -14,11 +14,14 @@ M.bootstrap = function()
         'yamlls',
         'quick_lint_js',
     }
-    require('mason-lspconfig').setup({
+    local mason_lspconfig = require('mason-lspconfig')
+    mason_lspconfig.setup({
         ensure_installed = required_servers,
     })
 
-    for _, server in ipairs(required_servers) do
+    local installed_servers =
+        mason_lspconfig.get_installed_servers()
+    for k, server in ipairs(installed_servers) do
         local capabilities = require('cmp_nvim_lsp').update_capabilities(
             vim.lsp.protocol.make_client_capabilities()
         )
