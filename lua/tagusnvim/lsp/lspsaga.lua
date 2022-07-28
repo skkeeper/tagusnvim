@@ -18,10 +18,8 @@ M.bootstrap = function()
 
     local pop_opts = { border = 'rounded', max_width = 80 }
     handlers['textDocument/hover'] = lsp.with(handlers.hover, pop_opts)
-    handlers['textDocument/signatureHelp'] = lsp.with(
-        handlers.signature_help,
-        pop_opts
-    )
+    handlers['textDocument/signatureHelp'] =
+        lsp.with(handlers.signature_help, pop_opts)
 end
 
 M.keybindings = function()
@@ -48,13 +46,13 @@ M.keybindings = function()
     keymap(
         'n',
         '<f2>',
-        "<cmd>lua require('lspsaga.rename').rename()<CR>",
+        "<cmd>lua require('lspsaga.rename').lsp_rename()<CR>",
         options
     )
     keymap(
         'n',
         '<localleader>ap',
-        "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>",
+        "<cmd>lua require'lspsaga.definition'.preview_definition()<CR>",
         options
     )
     keymap(
