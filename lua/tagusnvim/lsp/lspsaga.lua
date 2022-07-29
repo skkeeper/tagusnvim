@@ -58,7 +58,7 @@ M.keybindings = function()
     keymap(
         'n',
         '<localleader>ag',
-        "<cmd>lua require'lspsaga.diagnostic'.show_cursor_diagnostics()<CR>",
+        "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>",
         options
     )
 end
