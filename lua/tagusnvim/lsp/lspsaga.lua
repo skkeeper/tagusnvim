@@ -5,7 +5,7 @@ M.bootstrap = function()
     local lsp = vim.lsp
     local handlers = lsp.handlers
     saga.init_lsp_saga({
-        border_style = 'round',
+        border_style = 'bold',
         finder_action_keys = {
             open = '<CR>',
             vsplit = 's',
@@ -16,7 +16,7 @@ M.bootstrap = function()
         },
     })
 
-    local pop_opts = { border = 'rounded', max_width = 80 }
+    local pop_opts = { border = 'bold', max_width = 80 }
     handlers['textDocument/hover'] = lsp.with(handlers.hover, pop_opts)
     handlers['textDocument/signatureHelp'] =
         lsp.with(handlers.signature_help, pop_opts)
