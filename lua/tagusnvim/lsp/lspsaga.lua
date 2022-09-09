@@ -5,7 +5,7 @@ M.bootstrap = function()
     local lsp = vim.lsp
     local handlers = lsp.handlers
     saga.init_lsp_saga({
-        border_style = 'bold',
+        border_style = 'single',
         finder_action_keys = {
             open = '<CR>',
             vsplit = 's',
@@ -16,14 +16,14 @@ M.bootstrap = function()
         },
     })
 
-    local pop_opts = { border = 'bold', max_width = 80 }
+    local pop_opts = { border = 'single', max_width = 80 }
     handlers['textDocument/hover'] = lsp.with(handlers.hover, pop_opts)
     handlers['textDocument/signatureHelp'] =
         lsp.with(handlers.signature_help, pop_opts)
 end
 
 M.keybindings = function()
-    local keymap = vim.api.nvim_set_keymap
+    local keymap = vim.keymap.set
     local options = { noremap = true, silent = true }
     keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', options)
     keymap('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<CR>', options)

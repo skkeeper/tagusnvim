@@ -50,6 +50,11 @@ M.bootstrap = function()
         elseif server == 'jsonls' then
             local extra_opts = require('tagusnvim/lsp/jsonls').generate_opts()
             opts = vim.tbl_deep_extend('force', opts, extra_opts)
+        elseif server == 'quick_lint_js' then
+            require('lspconfig').quick_lint_js.setup({
+                filetypes = { 'javascript' },
+            })
+            goto continue
         end
 
         require('lspconfig')[server].setup(opts)
@@ -69,6 +74,10 @@ M.tool_installer = function()
         'editorconfig-checker',
         'luacheck',
         'shellcheck',
+        'goimports',
+        'write-good',
+        'alex',
+        'markdownlint',
     }
 
     local is_present = require('tagusnvim.is_present')

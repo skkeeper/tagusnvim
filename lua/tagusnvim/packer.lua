@@ -54,7 +54,7 @@ return require('packer').startup(function(use)
 
     -- Highlight color codes in buffers
     use({
-        'norcalli/nvim-colorizer.lua',
+        'NvChad/nvim-colorizer.lua',
         -- event = 'BufRead',
     })
 
@@ -114,6 +114,7 @@ return require('packer').startup(function(use)
     -- LSP extensions and UIs
     use({
         'glepnir/lspsaga.nvim',
+        commit = '37bb464d55ba068ad14befd048c82cef007cea4d',
     })
 
     -- Swap function parameters command
