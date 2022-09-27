@@ -43,12 +43,7 @@ M.keybindings = function()
         ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>",
         options
     )
-    keymap(
-        'n',
-        '<f2>',
-        "<cmd>lua require('lspsaga.rename').lsp_rename()<CR>",
-        options
-    )
+    keymap('n', '<f2>', '<cmd>Lspsaga rename<CR>', options)
     keymap(
         'n',
         '<localleader>ap',
