@@ -46,7 +46,7 @@ end
 
 M.setup_gutter_icons = function()
     local signs =
-        { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+    { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
     for type, icon in pairs(signs) do
         local hl = 'DiagnosticSign' .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -79,7 +79,7 @@ M.on_attach = function(client, bufnr)
     local lsp_status = require('lsp-status')
     lsp_status.on_attach(client)
 
-    if client.server_capabilities.document_symbol then
+    if client.server_capabilities.documentSymbolProvider then
         local navic = require('nvim-navic')
         navic.attach(client, bufnr)
     end
@@ -101,11 +101,11 @@ M.on_attach = function(client, bufnr)
 
     -- we use null-ls for Go formatting instead
     if client.name == 'gopls' then
-        client.server_capabilities.document_formatting = false
-        client.server_capabilities.document_range_formatting = false
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
     end
 
-    if client.server_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_command([[augroup Format]])
         vim.api.nvim_command([[autocmd! * <buffer>]])
         vim.api.nvim_command(
