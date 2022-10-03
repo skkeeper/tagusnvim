@@ -14,6 +14,15 @@ M.bootstrap = function()
             scroll_down = '<C-f>',
             scroll_up = '<C-b>', -- quit can be a table
         },
+        code_action_lightbulb = {
+            enable = true,
+            enable_in_insert = true,
+            cache_code_action = true,
+            sign = true,
+            update_time = 150,
+            sign_priority = 20,
+            virtual_text = false,
+        },
     })
 
     local pop_opts = { border = 'single', max_width = 80 }
@@ -25,37 +34,23 @@ end
 M.keybindings = function()
     local keymap = vim.keymap.set
     local options = { noremap = true, silent = true }
-    keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', options)
+    keymap('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', options)
     keymap('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<CR>', options)
     keymap('n', 'gh', '<Cmd>Lspsaga lsp_finder<CR>', options)
     keymap('n', 'gj', '<Cmd>Lspsaga diagnostic_jump_next<cr>', options)
     keymap('n', 'gk', '<Cmd>Lspsaga diagnostic_jump_prev<cr>', options)
 
-    keymap(
-        'n',
-        '<localleader>ac',
-        "<cmd>lua require('lspsaga.codeaction').code_action()<CR>",
-        options
-    )
-    keymap(
-        'v',
-        '<localleader>ac',
-        ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>",
-        options
-    )
-    keymap('n', '<f2>', '<cmd>Lspsaga rename<CR>', options)
-    keymap(
-        'n',
-        '<localleader>ap',
-        "<cmd>lua require'lspsaga.definition'.preview_definition()<CR>",
-        options
-    )
+    keymap('n', '<localleader>ac', '<Cmd>Lspsaga code_action<CR>', options)
+    keymap('v', '<localleader>ac', '<Cmd>Lspsaga code_action<CR>', options)
+    keymap('n', '<f2>', '<Cmd>Lspsaga rename<CR>', options)
+    keymap('n', '<localleader>ap', '<Cmd>Lspsaga peek_definition<CR>', options)
     keymap(
         'n',
         '<localleader>ag',
-        "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>",
+        '<Cmd>Lspsaga show_line_diagnostics<CR>',
         options
     )
+    keymap('n', '<localleader>o', '<Cmd>LSoutlineToggle<CR>', options)
 end
 
 return M

@@ -89,6 +89,7 @@ M.bootstrap = function()
             f = 'Test File',
             o = 'Test Output',
         },
+        o = 'Symbol Outline',
     }, { prefix = '<localleader>' })
 
     wk.register({

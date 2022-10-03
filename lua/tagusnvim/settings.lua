@@ -44,6 +44,7 @@ opt.title = true
 opt.showmode = false
 
 vim.o.updatetime = 250
+vim.o.ch = 0
 
 opt.syntax = 'enable'
 if vim.fn.has('termguicolors') == 1 then
@@ -54,8 +55,3 @@ vim.api.nvim_command([[
     autocmd ColorScheme * highlight Normal guibg=NONE ctermbg=NONE
     autocmd ColorScheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
 ]])
-
--- hide the command line if nvim is >= 0.8
-if vim.version().api_level == 10 then
-    vim.o.cmdheight = 0
-end

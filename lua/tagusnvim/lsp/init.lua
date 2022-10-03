@@ -79,7 +79,7 @@ M.on_attach = function(client, bufnr)
     local lsp_status = require('lsp-status')
     lsp_status.on_attach(client)
 
-    if client.resolved_capabilities.document_symbol then
+    if client.server_capabilities.document_symbol then
         local navic = require('nvim-navic')
         navic.attach(client, bufnr)
     end
@@ -101,15 +101,15 @@ M.on_attach = function(client, bufnr)
 
     -- we use null-ls for Go formatting instead
     if client.name == 'gopls' then
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.document_range_formatting = false
     end
 
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.document_formatting then
         vim.api.nvim_command([[augroup Format]])
         vim.api.nvim_command([[autocmd! * <buffer>]])
         vim.api.nvim_command(
-            [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+            [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
         )
         vim.api.nvim_command([[augroup END]])
     end

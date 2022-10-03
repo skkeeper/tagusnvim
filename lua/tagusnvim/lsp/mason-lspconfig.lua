@@ -10,7 +10,7 @@ M.bootstrap = function()
         'emmet_ls',
         'vimls',
         'yamlls',
-        'quick_lint_js',
+        -- 'quick_lint_js',
     }
     local mason_lspconfig = require('mason-lspconfig')
 
@@ -51,9 +51,7 @@ M.bootstrap = function()
             local extra_opts = require('tagusnvim/lsp/jsonls').generate_opts()
             opts = vim.tbl_deep_extend('force', opts, extra_opts)
         elseif server == 'quick_lint_js' then
-            require('lspconfig').quick_lint_js.setup({
-                filetypes = { 'javascript' },
-            })
+            require('lspconfig').quick_lint_js.setup({})
             goto continue
         end
 
