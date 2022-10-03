@@ -49,7 +49,7 @@ return require('packer').startup(function(use)
 
     use({
         'numToStr/Comment.nvim',
-        tag = 'v0.6.1',
+        tag = 'v0.7.0',
     })
 
     -- Highlight color codes in buffers
