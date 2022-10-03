@@ -129,6 +129,11 @@ return require('packer').startup(function(use)
     use({
         'folke/todo-comments.nvim',
         requires = 'nvim-lua/plenary.nvim',
+        event = 'VimEnter', -- fixes nvim intro
+        config = function()
+            local todo_cfg = require('tagusnvim.plugins.todo-comments')
+            todo_cfg.bootstrap()
+        end
     })
 
     -- Autopairs for tags

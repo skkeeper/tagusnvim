@@ -45,8 +45,6 @@ run_if_module_exists('Comment', function()
 end)
 
 run_if_module_exists('todo-comments', function()
-    local todo_cfg = require('tagusnvim.plugins.todo-comments')
-    todo_cfg.bootstrap()
 end)
 
 run_if_module_exists('luasnip', function()
