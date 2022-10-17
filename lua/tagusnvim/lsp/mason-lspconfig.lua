@@ -26,9 +26,7 @@ M.bootstrap = function()
 
     local installed_servers = mason_lspconfig.get_installed_servers()
     for k, server in ipairs(installed_servers) do
-        local capabilities = require('cmp_nvim_lsp').update_capabilities(
-            vim.lsp.protocol.make_client_capabilities()
-        )
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
         local on_attach = require('tagusnvim/lsp').on_attach
 
         local opts = {
