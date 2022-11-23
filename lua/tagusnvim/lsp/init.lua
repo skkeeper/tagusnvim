@@ -46,7 +46,7 @@ end
 
 M.setup_gutter_icons = function()
     local signs =
-    { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+        { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
     for type, icon in pairs(signs) do
         local hl = 'DiagnosticSign' .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -103,9 +103,14 @@ M.on_attach = function(client, bufnr)
     if client.name == 'gopls' then
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
-    end
-
-    if client.server_capabilities.documentFormattingProvider then
+    elseif client.server_capabilities.documentRangeFormattingProvider then
+        local lsp_format_modifications = require('lsp-format-modifications')
+        lsp_format_modifications.attach(
+            client,
+            bufnr,
+            { format_on_save = true }
+        )
+    elseif client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_command([[augroup Format]])
         vim.api.nvim_command([[autocmd! * <buffer>]])
         vim.api.nvim_command(

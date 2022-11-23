@@ -103,6 +103,7 @@ return require('packer').startup(function(use)
         'jose-elias-alvarez/typescript.nvim',
         'nvim-lua/lsp-status.nvim',
         'ray-x/lsp_signature.nvim',
+        'joechrisellis/lsp-format-modifications.nvim',
     })
 
     -- Integrate cli tools into LSP
@@ -133,7 +134,7 @@ return require('packer').startup(function(use)
         config = function()
             local todo_cfg = require('tagusnvim.plugins.todo-comments')
             todo_cfg.bootstrap()
-        end
+        end,
     })
 
     -- Autopairs for tags
